@@ -1,0 +1,81 @@
+.navbar{
+    font-family: 'Merriweather', serif !important;
+    font-weight: 100 !important;
+    background: lavender !important;
+    color: darkblue !important;
+}
+#myNav .fas{
+    font-size: 20px;
+}
+#logo{
+    font-family: 'Dancing Script', cursive;
+    background: url(../../images/book-store.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-position: bottom;
+    width: 100%;
+    min-height: 600px;
+}
+#bestsellers{
+    font-family: 'Dancing Script', cursive;
+}
+#promotion{
+    font-family: 'Dancing Script', cursive;
+}
+#recommended{
+    font-family: 'Dancing Script', cursive;
+}
+
+#bestsellers .card-img-top{
+    height: 378px !important;
+}
+#recommended .card-img-top{
+    height: 378px !important;
+}
+#footer{
+    font-family: 'Dancing Script', cursive;
+    background: peachpuff;
+    line-height: 1px;
+}
+#footer .input{
+    width: 200px;
+    padding: 5px 20px 5px 20px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+#contact .h3{
+    font-family: 'Dancing Script', cursive;
+}
+
+#details .image-size{
+    height: 350px !important;
+}
+#details .image-container{
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+}
+#details .button{
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    color: black;
+    text-decoration: none;
+}
+#details .light-green{
+    margin-right: 4px;
+    background: peachpuff;
+}
+#details .lavender{
+    margin-right: 4px;
+    background: lavender;
+}
+#details .light-cyan{
+    margin-right: 4px;
+    background: coral;
+}
+#main .lavender{
+    background: lavender;
+}
+#second .lavender{
+    background: lavender;
+}

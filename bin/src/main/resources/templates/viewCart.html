@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html th:replace="layouts/secondaryLayout :: layout(~{::main})" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<main role="main">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+            <h3>Cart View</h3>
+          </div>
+          <table class="table table-striped">
+            <thead>
+               <tr>
+                 <th>Id</th>
+                 <th>Title</th>
+                 <th>Author</th>
+                 <th>Price</th>
+                 <th>Action</th>
+               </tr>
+            </thead>
+            <tbody>
+              <tr th:each="item : ${cartItems}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.title}"></td>
+                <td th:text="${item.authorName}"></td>
+                <td th:text="${'$'+item.price}"></td>
+                <td><a th:href="@{'/remove-cart-item?id='+${item.id}}" class="btn btn-outline-danger">Delete</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <h3>Total : <span th:text="${'$'+total}"></span></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

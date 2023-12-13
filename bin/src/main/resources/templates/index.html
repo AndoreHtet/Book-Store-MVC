@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html th:replace="layouts/masterLayout :: layout(~{::main})"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<body>
+<main id="main" class="lavender" role="main">
+
+    <section id="bestsellers" class="bg-light p-3">
+        <div class="container">
+            <div class="my-3 d-flex justify-content-between">
+                <h1>BestSellers</h1>
+                <a th:href="@{'/list-all-books?status=bestsellers'}" class="h1" style="text-decoration: none">More <i class="fas fa-angle-double-right ms-1"></i></a>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4" th:each="best : ${bestSellers}">
+                    <div class="card" style="width: 18rem">
+                        <img th:src="@{'images/books/'+ ${best.bookImageName} + '.png'}"
+                             class="card-img-top"
+                             alt="">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${best.title}"></h5>
+                            <p class="lead text-muted card-text" th:text="${best.author.firstName +' '+ best.author.lastName}"></p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-between">
+                                <a th:href="@{'/book-details?id='+ ${best.id}}" class="btn btn-link">Detail</a>
+                                <a th:href="@{'/add-to-cart-index?id='+${best.id}}"><i class="fas fa-cart-arrow-down mt-3"></i></a>
+                                <p class="lead mt-1" th:text="${best.price + '$'}"></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="promotion" class="bg-light p-3 mt-5" th:if="${!promotions.isEmpty()}">
+        <div class="container">
+            <div class="my-3 d-flex justify-content-between">
+                <h1>Promotions</h1>
+                <a th:href="@{'/list-all-books?status=promotion'}" class="h1" style="text-decoration: none">More <i class="fas fa-angle-double-right ms-1"></i></a>
+            </div>
+            <div class="row">
+                <div class="col" th:each="pro :${promotions}">
+                    <div class="card" style="width: 18rem">
+                        <img th:src="@{'images/books/'+ ${pro.bookImageName} + '.png'}"
+                             class="card-img-top"
+                             alt="">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${pro.title}"></h5>
+                            <p class="lead text-muted card-text" th:text="${pro.author.firstName +' '+ pro.author.lastName}"></p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-between">
+                                <a th:href="@{'/book-details?id='+ ${pro.id}}" class="btn btn-link">Detail</a>
+                                <a th:href="@{'/add-to-cart-index?id='+${pro.id}}"><i class="fas fa-cart-arrow-down mt-3"></i></a>
+                                <p class="lead mt-1" th:text="${pro.price + '$'}"></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recommended" class="mt-5 p-3 bg-light">
+        <div class="container">
+            <div class="my-3 d-flex justify-content-between">
+            <h1>Recommended</h1>
+            <a th:href="@{'/list-all-books?status=recommended'}" class="h1" style="text-decoration: none">More <i class="fas fa-angle-double-right ms-1"></i></a>
+        </div>
+        <div class="row">
+            <div class="col" th:each="rec : ${recommended}">
+                <div class="card" style="width: 18rem">
+                    <img th:src="@{'images/books/'+ ${rec.bookImageName} + '.png'}"
+                         class="card-img-top"
+                         alt="">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${rec.title}"></h5>
+                        <p class="lead text-muted card-text" th:text="${rec.author.firstName +' '+ rec.author.lastName}"></p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between">
+                            <a th:href="@{'/book-details?id='+ ${rec.id}}" class="btn btn-link">Detail</a>
+                            <a th:href="@{'/add-to-cart-index?id='+${rec.id}}"><i class="fas fa-cart-arrow-down mt-3"></i></a>
+                            <p class="lead mt-1" th:text="${rec.price + '$'}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="news" class="mt-5 p-3 bg-light">
+        <div class="container">
+            <div class="my-3 d-flex justify-content-between">
+                <h3>News</h3>
+                <a th:href="@{'/list-all-books?status=new'}" class="h1" style="text-decoration: none">More <i class="fas fa-angle-double-right ms-1"></i></a>
+            </div>
+            <div class="row">
+                <div class="col" th:each="n : ${news}">
+                    <div class="card" style="width: 18rem">
+                        <img th:src="@{'images/books/'+ ${n.bookImageName} + '.png'}"
+                             class="card-img-top"
+                             alt="">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${n.title}"></h5>
+                            <p class="lead text-muted card-text" th:text="${n.author.firstName +' '+ n.author.lastName}"></p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-between">
+                                <a th:href="@{'/book-details?id='+ ${n.id}}" class="btn btn-link">Detail</a>
+                                <a th:href="@{'/add-to-cart-index?id='+${n.id}}"><i class="fas fa-cart-arrow-down mt-3"></i></a>
+                                <p class="lead mt-1" th:text="${n.price + '$'}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+</body>
+</html>

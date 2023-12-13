@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html th:replace="layouts/secondaryLayout :: layout(~{::main})" xmlns:th="http://www.thymeleaf.org">
+<body>
+<main role="main">
+    <section id="details" class="bg-light p-3">
+        <div class="container mt-5">
+
+            <div class="row">
+                <div class="offset-1 col-md-5">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card shadow-lg mt-2" style="width: 18rem">
+                                <img th:src="@{'images/books/'+ ${book.bookImageName} + '.png'}"
+                                     class="image-size"
+                                     alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            <div class="container">
+                                <h1 class="lead text-muted display-4" th:text="${book.title}"></h1>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <img th:src="@{'images/authors/'+ ${book.author.imageName} +'.png'}"
+                                                 class="img-thumbnail image-container rounded-circle me-3"
+                                                 alt=""> <span class="lead text-muted" th:text="${book.author.firstName + ' '+ book.author.lastName}"></span>
+                                        </div>
+
+                                    </div>
+                                     <p class="lead" th:text="${book.author.bioInfo}"></p>
+                                     <div class="row">
+                                         <div class="col">
+                                             <h3>PUBLISHER</h3>
+                                             <h3>YEAR</h3>
+                                             <h3>PRICE</h3>
+                                         </div>
+                                         <div class="col">
+                                             <h3 class="text-muted" th:text="${book.publisher}"></h3>
+                                             <h3 class="text-muted" th:text="${book.yearPublished}"></h3>
+                                             <h3 class="text-muted" th:text="${'$'+ book.price}"></h3>
+                                         </div>
+
+                                     </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                            <a class="button light-green me-1" th:href="@{'/add-to-cart?id='+${book.id}}">Add to Cart</a>
+                            <a class="button light-cyan me-1" th:href="@{/}">Continue Shopping</a>
+                            <a class="button lavender" th:href="@{/view-cart}">ViewCart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>
